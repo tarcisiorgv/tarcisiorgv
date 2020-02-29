@@ -1,0 +1,15 @@
+const axios = require('axios');
+const request = axios.create({
+  baseURL: 'https://gw.firstdag.com/api/libra',
+  headers: {
+    'X-Api-Key': 'cfa13fea7e33412c9644e5349783179a0fc208f1e17f7f415d97b09fafb2fee2'
+  }
+});
+
+// Get latest transactions
+const transactionsResponse = await request.get('tx');
+console.log(transactionsResponse.data);
+
+// Get version details
+const versionResponse = await request.get('tx/123123');
+console.log(versionResponse.data);
